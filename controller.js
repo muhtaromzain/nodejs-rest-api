@@ -66,3 +66,18 @@ exports.updateDataUser = function (req, res) {
 		}
 	});
 };
+
+// Delete data based on id
+exports.deleteDataUser = function (req, res) {
+	let id = req.body.id;
+	
+	connection.query('DELETE FROM users WHERE id=?', [id],
+	function(error, rows, fields){
+		if(error) {
+			console.log(error);
+		}
+		else {
+			response.ok('Data deleted successfully', res);
+		}
+	});
+};

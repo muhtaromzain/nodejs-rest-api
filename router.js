@@ -12,4 +12,6 @@ module.exports = function(app) {
 	app.route('/add').post(json.setDataUser);
 	
 	app.route('/update').put(json.updateDataUser);
+	
+	app.route('/delete').delete(json.deleteDataUser);
 };

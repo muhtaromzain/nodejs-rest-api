@@ -8,4 +8,6 @@ module.exports = function(app) {
 	app.route('/get').get(json.getData);
 	
 	app.route('/get/:id').get(json.getDataUser);
+	
+	app.route('/add').post(json.setDataUser);
 };

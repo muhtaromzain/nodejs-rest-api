@@ -5,5 +5,5 @@ var connection = require('./connection');
 
 
 exports.index = function (req, res) {
-	response.ok("Apps Run");
+	response.ok("Apps Run", res);
 };

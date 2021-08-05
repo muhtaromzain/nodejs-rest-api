@@ -49,3 +49,20 @@ exports.setDataUser = function (req, res) {
 		}
 	});
 };
+
+// Update data based on id
+exports.updateDataUser = function (req, res) {
+	let id = req.body.id;
+	let username = req.body.username;
+	let email = req.body.email;
+	
+	connection.query('UPDATE users SET username=?, email=? WHERE id=?', [username, email, id],
+	function(error, rows, fields){
+		if(error) {
+			console.log(error);
+		}
+		else {
+			response.ok('Data updated successfully', res);
+		}
+	});
+};

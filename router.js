@@ -14,4 +14,6 @@ module.exports = function(app) {
 	app.route('/update').put(json.updateDataUser);
 	
 	app.route('/delete').delete(json.deleteDataUser);
+	
+	app.route('/showAll').get(json.showNestedJson);
 };

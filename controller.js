@@ -81,3 +81,17 @@ exports.deleteDataUser = function (req, res) {
 		}
 	});
 };
+
+// Display nested json
+exports.showNestedJson = function (req, res) {
+	connection.query('SELECT students.id, students.name, students.matric_no, students.major, subjects.subject, subjects.credit FROM css JOIN students JOIN subjects WHERE students.id = css.student_id AND subjects.id = css.subject_id ORDER BY students.id',
+		function (error, rows, fields) {
+			if(error) {
+				console.log(error);
+			}
+			else {
+				response.nested(rows, res);
+			}
+		}
+	);
+};

@@ -16,10 +16,10 @@ exports.registration = function(req, res) {
 		created_at: new Date()
 	};
 	
-	var query = "SELECT email FROM ?? WHERE ??";
+	var query = "SELECT email FROM ?? WHERE ??=?";
 	var table = ["users", "email", post.email];
 	
-	query = mysql.format(query.table);
+	query = mysql.format(query, table);
 	
 	connection.query(query, function(error, rows){
 		if(error) {
@@ -40,7 +40,7 @@ exports.registration = function(req, res) {
 				});
 			}
 			else {
-				response.ok("Email already registered!");
+				response.ok("Email already registered!", res);
 			}
 		}
 	});

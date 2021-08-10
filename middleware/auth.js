@@ -103,3 +103,7 @@ exports.login = function(req, res) {
 		}
 	}); 
 }
+
+exports.testing = function (req, res) {
+	response.ok("This is authentication and verification for role 1", res);
+}
